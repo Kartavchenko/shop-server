@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "iPhone 12",
+        "price": 799,
+        "description": "The latest iPhone with A14 Bionic chip and 5G support.",
+        "category": "Electronics",
+        "image_url": "https://example.com/iphone12.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Samsung Galaxy S21",
+        "price": 799,
+        "description": "The latest Samsung phone with Exynos 2100 chip and 5G support.",
+        "category": "Electronics",
+        "image_url": "https://example.com/s21.jpg"
+    },
+    {
+        "id": 3,
+        "name": "MacBook Air",
+        "price": 999,
+        "description": "The thinnest and lightest MacBook with M1 chip.",
+        "category": "Computers",
+        "image_url": "https://example.com/macbookair.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Amazon Echo Dot",
+        "price": 49,
+        "description": "A smart speaker with Alexa voice assistant.",
+        "category": "Electronics",
+        "image_url": "https://example.com/echodot.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Nintendo Switch",
+        "price": 299,
+        "description": "A hybrid console for gaming at home and on-the-go.",
+        "category": "Gaming",
+        "image_url": "https://example.com/switch.jpg"
+    }
+]
