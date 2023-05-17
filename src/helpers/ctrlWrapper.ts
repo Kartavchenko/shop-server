@@ -1,8 +1,10 @@
+import { Request, Response, NextFunction } from 'express';
+
 export const ctrlWrapper = (ctrl: Function) =>
-	async (req: Request, res: Response, next: Function) => {
+	async (req: Request, res: Response, next: NextFunction) => {
     try {
         await ctrl(req, res, next);
     } catch (error) {
         next(error)
     }
-}
+    }

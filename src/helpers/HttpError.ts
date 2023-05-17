@@ -7,8 +7,6 @@ class HttpError extends Error {
     }
 }
 
-function httpError(status: number, message: string) {
+export function httpError(status: number, message: string) {
     return new HttpError(status, message);
 }
-
-export default httpError;
