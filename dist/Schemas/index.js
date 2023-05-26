@@ -15,5 +15,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./addToHistoryOrder"), exports);
-__exportStar(require("./getHistoryOrder"), exports);
-__exportStar(require("./deleteFromHistoryOrder"), exports);
+__exportStar(require("./addToWishlist"), exports);

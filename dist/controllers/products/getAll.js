@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAll = void 0;
-const product_1 = __importDefault(require("../../models/product"));
+const productModel_1 = __importDefault(require("../../models/productModel"));
 const getAll = async (req, res) => {
-    const result = await product_1.default.find();
+    const result = await productModel_1.default.find();
     res.json(result);
 };
 exports.getAll = getAll;

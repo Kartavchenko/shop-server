@@ -4,8 +4,10 @@ import WishlistModel from "../../models/wishlistModel";
 export const addToWishlist = async (req: Request, res: Response) => {
     const { userId, items } = req.body;
 
-    const list = await WishlistModel.findOne({userId});
-
+    const list = await WishlistModel.findOne({ userId });
+    console.log(list?.items.map((item) => item._id));
+    // check if item already exists in wishlist
+    
     if (!list) {
         const createWishlist = await WishlistModel.create(req.body);
 
