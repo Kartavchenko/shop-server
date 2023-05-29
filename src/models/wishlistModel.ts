@@ -6,7 +6,7 @@ interface UserWishlist {
 }
 
 interface Product {
-    _id: Types.ObjectId;
+    _id: string;
     name: string;
     price: string;
     description: string;
@@ -23,7 +23,7 @@ const wishlistSchema = new Schema<UserWishlist>({
     items: [
         {
         _id: {
-            type: Types.ObjectId,
+            type: String,
             unique: true,
             required: [true, "ID is required"],
         },
@@ -48,7 +48,7 @@ const wishlistSchema = new Schema<UserWishlist>({
         },
         }
     ],
-}, { versionKey: false, timestamps: true });
+}, { versionKey: false });
 
 const WishlistModel = model<UserWishlist>("Wishlist", wishlistSchema, "wishlist");
 

@@ -8,6 +8,12 @@ const wishlistModel_1 = __importDefault(require("../../models/wishlistModel"));
 const addToWishlist = async (req, res) => {
     const { userId, items } = req.body;
     const list = await wishlistModel_1.default.findOne({ userId });
+    const user = await wishlistModel_1.default.aggregate([
+        { $match: { _id: (userId) } },
+        { $unwind: '$items' },
+        { $project: { itemIds: '$items.items.id' } },
+    ]);
+    console.log(user);
     if (!list) {
         const createWishlist = await wishlistModel_1.default.create(req.body);
         res.status(201).json(createWishlist);

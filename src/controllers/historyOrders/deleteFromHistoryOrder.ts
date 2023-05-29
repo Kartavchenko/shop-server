@@ -9,15 +9,13 @@ export const deleteFromHistoryOrder = async (req: Request, res: Response) => {
 
     if (!user) throw httpError(404, "User with history orders not found");
 
-    if (user) {
-        const updateHistoryOrder = await HistoryModel.findOneAndUpdate(
+    const updateHistoryOrder = await HistoryModel.findOneAndUpdate(
         { userId },
-        { $pull: { items: {_id: itemId} } },
+        { orders: { $pull: { _id: itemId } } },
         { new: true }
-        );
+    );
+    
+    if (!updateHistoryOrder) throw httpError(404, "history item not found");
 
-        if (!updateHistoryOrder) throw httpError(404, "history item not found");
-
-        res.json({ message: "Item deleted" });
-    } 
+    res.json({ message: "Item deleted" });
 }
