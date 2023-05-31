@@ -7,8 +7,10 @@ export const deleteFromWishList = async (req: Request, res: Response) => {
     
     const user = await WishlistModel.findOne({userId});
 
+    // Throw an error if the user doesn't exist
     if (!user) throw httpError(404, "User with wishlist not found");
 
+    // Remove from array of items in wishlist
     if (user) {
         const updateWishlist = await WishlistModel.findOneAndUpdate(
         { userId },

@@ -11,11 +11,9 @@ const deleteFromHistoryOrder = async (req, res) => {
     const user = await historyModel_1.default.findOne({ userId });
     if (!user)
         throw (0, helpers_1.httpError)(404, "User with history orders not found");
-    if (user) {
-        const updateHistoryOrder = await historyModel_1.default.findOneAndUpdate({ userId }, { $pull: { items: { _id: itemId } } }, { new: true });
-        if (!updateHistoryOrder)
-            throw (0, helpers_1.httpError)(404, "history item not found");
-        res.json({ message: "Item deleted" });
-    }
+    const updateHistoryOrder = await historyModel_1.default.findOneAndUpdate({ userId }, { orders: { $pull: { _id: itemId } } }, { new: true });
+    if (!updateHistoryOrder)
+        throw (0, helpers_1.httpError)(404, "history item not found");
+    res.json({ message: "Item deleted" });
 };
 exports.deleteFromHistoryOrder = deleteFromHistoryOrder;

@@ -10,7 +10,7 @@ const wishlistSchema = new mongoose_1.Schema({
     items: [
         {
             _id: {
-                type: mongoose_1.Types.ObjectId,
+                type: String,
                 unique: true,
                 required: [true, "ID is required"],
             },
@@ -35,6 +35,6 @@ const wishlistSchema = new mongoose_1.Schema({
             },
         }
     ],
-}, { versionKey: false, timestamps: true });
+}, { versionKey: false });
 const WishlistModel = (0, mongoose_1.model)("Wishlist", wishlistSchema, "wishlist");
 exports.default = WishlistModel;
