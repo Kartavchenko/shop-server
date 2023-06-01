@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "npm run build",
-    "build": "npm run build",
+    "build": "tsc",
     "start": "node dist/index.js",
     "serve": "npx tsc & nodemon src/index.ts --exec ts-node"
   },
