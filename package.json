@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "serve": "npx tsc & nodemon src/index.ts --exec ts-node",
-    "build": "ng build",
+    "build": "npm run build",
     "heroku-postbuild": "npm run build"
   },
   "author": "kartavchenko",
