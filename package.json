@@ -9,8 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "serve": "npx tsc & nodemon src/index.ts --exec ts-node",
-    "heroku-postbuild": "npm run build"
+    "serve": "npx tsc & nodemon src/index.ts --exec ts-node"
   },
   "author": "kartavchenko",
   "license": "ISC",
