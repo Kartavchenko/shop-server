@@ -11,7 +11,7 @@
     "start": "node dist/index.js",
     "serve": "npx tsc & nodemon src/index.ts --exec ts-node",
     "build": "ng build",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "npm run build"
   },
   "author": "kartavchenko",
   "license": "ISC",
