@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 
-const { DATABASE_URL, PORT = 3001 } = process.env; 
+const { DATABASE_URL, PORT } = process.env;
 
 declare global {
   namespace NodeJS {
@@ -30,7 +30,7 @@ declare global {
   try {
     await mongoose.connect(DATABASE_URL);
 
-    await app.listen(PORT);
+    await app.listen(PORT || 3000);
 
   } catch (error: any) {
     console.error(error.message);
