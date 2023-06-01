@@ -9,8 +9,10 @@ const wishlistModel_1 = __importDefault(require("../../models/wishlistModel"));
 const deleteFromWishList = async (req, res) => {
     const { userId, itemId } = req.params;
     const user = await wishlistModel_1.default.findOne({ userId });
+    // Throw an error if the user doesn't exist
     if (!user)
         throw (0, helpers_1.httpError)(404, "User with wishlist not found");
+    // Remove from array of items in wishlist
     if (user) {
         const updateWishlist = await wishlistModel_1.default.findOneAndUpdate({ userId }, { $pull: { items: { _id: itemId } } }, { new: true });
         if (!updateWishlist)
