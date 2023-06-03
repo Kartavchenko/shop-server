@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Product from "../../models/productModel";
 
 export const getAll = async (req: Request, res: Response) => {
-    const { page = 1, pageLimit = 10, query } = req.query;
+    const { page = 1, pageLimit = 10, query = '' } = req.query;
 
     const totalProducts = await Product.countDocuments();
 
