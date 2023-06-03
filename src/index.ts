@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 import productsRouter from "./routes/api/productsRouts";
 import historyOrdersRouter from "./routes/api/historiesRouts";
-// import wishlistRouter from "./routes/api/wishlistRouts";
+import wishlistRouter from "./routes/api/wishlistRouts";
 
 dotenv.config();
 
@@ -48,7 +48,7 @@ app.use("/api/products", productsRouter);
 
 app.use("/api/history-orders", historyOrdersRouter);
 
-// app.use("/api/wishlist", wishlistRouter);
+app.use("/api/wishlist", wishlistRouter);
 
 app.use((req: Request, res: Response) => {
   res.status(404).send("Not Found");
