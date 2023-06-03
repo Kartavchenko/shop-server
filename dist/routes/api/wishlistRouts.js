@@ -11,5 +11,5 @@ const wishlist_1 = require("../../controllers/wishlist");
 const router = express_1.default.Router();
 router.get("/", (0, helpers_1.ctrlWrapper)(wishlist_1.getWishlist));
 router.post("/", (0, validateBody_1.default)(Schemas_1.addToWishlistSchema), (0, helpers_1.ctrlWrapper)(wishlist_1.addToWishlist));
-router.delete("/:userId/:itemId", (0, helpers_1.ctrlWrapper)(wishlist_1.deleteFromWishList));
+router.delete("/:userId/:itemId", (0, helpers_1.ctrlWrapper)(wishlist_1.deleteFromWishlist));
 exports.default = router;
