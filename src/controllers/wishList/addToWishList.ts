@@ -12,7 +12,7 @@ export const addToWishlist = async (req: Request, res: Response) => {
 
         return res.status(201).json(createWishlist);
     }
-    
+
     // Looping through the items array and get the _id of each item
     const listItems = list.items.map((item) => item._id);
 
@@ -22,14 +22,14 @@ export const addToWishlist = async (req: Request, res: Response) => {
     if (existItem) {
         return res.status(400).json({ message: "Item already in wishlist" });
     }
-    
+
     // Add the new item to the wishlist if it doesn't exist
     const updateWishlist = await WishlistModel.findOneAndUpdate(
         { userId },
         { $push: { items: items } },
         { new: true }
     );
-        
+
     res.status(201).json(updateWishlist);
-    
+
 }
