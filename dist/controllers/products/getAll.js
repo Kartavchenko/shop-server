@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAll = void 0;
 const productModel_1 = __importDefault(require("../../models/productModel"));
 const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { page = 1, pageLimit = 10, query } = req.query;
+    const { page = 1, pageLimit = 10, query = '' } = req.query;
     const totalProducts = yield productModel_1.default.countDocuments();
     const totalPages = Math.ceil(totalProducts / Number(pageLimit));
     // Get products with query params
