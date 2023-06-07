@@ -32,7 +32,11 @@ const { DATABASE_URL, PORT } = process.env;
         process.exit(1);
     }
 }))();
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: ["http://localhost:3000", "https://thriving-crostata-ea6435.netlify.app/"],
+    methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Headers", "Origin", "X-Requested-With", "Accept"]
+}));
 app.use(express_1.default.json());
 app.use(express_1.default.static("public"));
 app.use("/api/products", productsRouts_1.default);
