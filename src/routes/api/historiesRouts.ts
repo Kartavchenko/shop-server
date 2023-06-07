@@ -6,7 +6,7 @@ import { addToHistoryOrder, getHistoryOrder, deleteFromHistoryOrder } from "../.
 
 const router = express.Router();
 
-router.get("/", ctrlWrapper(getHistoryOrder));
+router.get("/:userId", ctrlWrapper(getHistoryOrder));
 
 router.post("/", validateBody(addToHistoryOrderSchema), ctrlWrapper(addToHistoryOrder));
 

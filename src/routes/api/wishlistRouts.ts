@@ -6,7 +6,7 @@ import { addToWishlist, getWishlist, deleteFromWishlist } from "../../controller
 
 const router = express.Router();
 
-router.get("/", ctrlWrapper(getWishlist));
+router.get("/:userId", ctrlWrapper(getWishlist));
 
 router.post("/", validateBody(addToWishlistSchema), ctrlWrapper(addToWishlist));
 
