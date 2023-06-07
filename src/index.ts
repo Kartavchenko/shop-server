@@ -39,7 +39,11 @@ declare global {
 }
 )();
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "https://thriving-crostata-ea6435.netlify.app/"],
+  methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Headers", "Origin", "X-Requested-With", "Accept"]
+}));
 
 app.use(express.json());
 app.use(express.static("public"));
