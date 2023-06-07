@@ -14,8 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getWishlist = void 0;
 const wishlistModel_1 = __importDefault(require("../../models/wishlistModel"));
+const helpers_1 = require("../../helpers");
 const getWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield wishlistModel_1.default.find();
+    const { userId } = req.params;
+    const result = yield wishlistModel_1.default.findOne({ userId });
+    // Throw an error if the wishlist doesn't exist
+    if (!result)
+        throw (0, helpers_1.httpError)(404, "Wishlist with this user not found");
     res.json(result);
 });
 exports.getWishlist = getWishlist;

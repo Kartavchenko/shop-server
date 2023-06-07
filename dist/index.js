@@ -18,7 +18,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const productsRouts_1 = __importDefault(require("./routes/api/productsRouts"));
 const historiesRouts_1 = __importDefault(require("./routes/api/historiesRouts"));
-// import wishlistRouter from "./routes/api/wishlistRouts";
+const wishlistRouts_1 = __importDefault(require("./routes/api/wishlistRouts"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const { DATABASE_URL, PORT } = process.env;
@@ -37,7 +37,7 @@ app.use(express_1.default.json());
 app.use(express_1.default.static("public"));
 app.use("/api/products", productsRouts_1.default);
 app.use("/api/history-orders", historiesRouts_1.default);
-// app.use("/api/wishlist", wishlistRouter);
+app.use("/api/wishlist", wishlistRouts_1.default);
 app.use((req, res) => {
     res.status(404).send("Not Found");
 });

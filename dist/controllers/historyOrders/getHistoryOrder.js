@@ -14,8 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getHistoryOrder = void 0;
 const historyModel_1 = __importDefault(require("../../models/historyModel"));
+const helpers_1 = require("../../helpers");
 const getHistoryOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield historyModel_1.default.find();
+    const { userId } = req.params;
+    const result = yield historyModel_1.default.findOne({ userId });
+    // Throw an error if the history doesn't exist
+    if (!result)
+        throw (0, helpers_1.httpError)(404, "History with this user not found");
     res.json(result);
 });
 exports.getHistoryOrder = getHistoryOrder;
