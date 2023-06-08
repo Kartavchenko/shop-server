@@ -14,6 +14,7 @@ exports.addToHistoryOrderSchema = joi_1.default.object({
             description: joi_1.default.string().required(),
             category: joi_1.default.string().required(),
             image_url: joi_1.default.string().optional(),
+            orderDate: joi_1.default.date().default(Date.now),
         }).required(),
     })
 });

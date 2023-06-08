@@ -27,8 +27,17 @@ const historySchema = new mongoose_1.Schema({
                     },
                     image_url: {
                         type: String,
+                        default: "https://t3.ftcdn.net/jpg/02/38/70/20/360_F_238702055_2MO2vhrRRLOvHMt9KRHMPmNgYfcGZrKS.jpg"
                     },
-                }]
+                }],
+            orderDate: {
+                type: Date,
+                default: Date.now,
+            },
+            totalPrice: {
+                type: Number,
+                default: 0,
+            },
         }],
 }, { versionKey: false });
 const HistoryModel = (0, mongoose_1.model)("History", historySchema, "history-orders");

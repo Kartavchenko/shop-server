@@ -7,6 +7,8 @@ interface UserHistory {
 
 interface Items {
     items: Types.DocumentArray<Product>;
+    orderDate: Date;
+    totalPrice: number;
 }
 
 interface Product {
@@ -24,8 +26,8 @@ const historySchema = new Schema<UserHistory>({
         required: [true, "User ID is required"],
     },
     orders: [{
-            items:
-                [{
+        items:
+            [{
                 name: {
                     type: String,
                     required: [true, "Name is required"],
@@ -44,9 +46,18 @@ const historySchema = new Schema<UserHistory>({
                 },
                 image_url: {
                     type: String,
+                    default: "https://t3.ftcdn.net/jpg/02/38/70/20/360_F_238702055_2MO2vhrRRLOvHMt9KRHMPmNgYfcGZrKS.jpg"
                 },
-            }]
-        }],
+            }],
+        orderDate: {
+            type: Date,
+            default: Date.now,
+        },
+        totalPrice: {
+            type: Number,
+            required: [true, "Total price is required"],
+        },
+    }],
 }, { versionKey: false });
 
 const HistoryModel = model<UserHistory>("History", historySchema, "history-orders");
