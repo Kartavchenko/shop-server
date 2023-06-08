@@ -2,7 +2,7 @@
   "name": "shop-server",
   "version": "1.0.0",
   "engines": {
-    "node": ">=18"
+    "node": "18.16.0"
   },
   "description": "api/v1",
   "main": "index.js",
