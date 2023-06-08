@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && node dist/index.js",
-    "build": "npx tsc",
+    "build": "tsc",
     "serve": "npx tsc & nodemon src/index.ts --exec ts-node"
   },
   "author": "kartavchenko",
