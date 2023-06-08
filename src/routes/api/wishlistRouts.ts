@@ -2,7 +2,9 @@ import express from "express";
 import validateBody from "../../middlewares/validateBody";
 import { ctrlWrapper } from "../../helpers";
 import { addToWishlistSchema } from "../../Schemas";
-import { addToWishlist, getWishlist, deleteFromWishlist } from "../../controllers/wishlist";
+import { getWishlist } from "../../controllers/wishlist/getWishlist";
+import { addToWishlist } from "../../controllers/wishlist/addToWishlist";
+import { deleteFromWishlist } from "../../controllers/wishlist/deleteFromWishlist";
 
 const router = express.Router();
 

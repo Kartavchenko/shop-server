@@ -11,4 +11,4 @@ export const getWishlist = async (req: Request, res: Response) => {
     if (!result) throw httpError(404, "Wishlist with this user not found");
 
     res.json(result);
-}
+};

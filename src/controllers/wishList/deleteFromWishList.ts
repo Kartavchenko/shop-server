@@ -22,4 +22,4 @@ export const deleteFromWishlist = async (req: Request, res: Response) => {
 
         res.json({ message: "Item deleted" });
     }
-}
+};
