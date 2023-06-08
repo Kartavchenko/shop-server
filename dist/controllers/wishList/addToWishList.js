@@ -23,9 +23,9 @@ const addToWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         return res.status(201).json(createWishlist);
     }
     // Looping through the items array and get the _id of each item
-    const listItems = list.items.map((item) => item._id);
+    const listItems = list.items.map((item) => item.name);
     // Check if the item already exists in the wishlist
-    const existItem = items.find((item) => listItems.includes(item._id));
+    const existItem = items.find((item) => listItems.includes(item.name));
     if (existItem) {
         return res.status(400).json({ message: "Item already in wishlist" });
     }

@@ -18,7 +18,6 @@ export const addToWishlist = async (req: Request, res: Response) => {
 
     // Check if the item already exists in the wishlist
     const existItem = items.find((item: any) => listItems.includes(item.name));
-    console.log(existItem)
 
     if (existItem) {
         return res.status(400).json({ message: "Item already in wishlist" });

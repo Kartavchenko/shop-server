@@ -7,13 +7,7 @@ const wishlistSchema = new mongoose_1.Schema({
         unique: true,
         required: [true, "User ID is required"],
     },
-    items: [
-        {
-            _id: {
-                type: String,
-                unique: true,
-                required: [true, "ID is required"],
-            },
+    items: [{
             name: {
                 type: String,
                 required: [true, "Name is required"],
