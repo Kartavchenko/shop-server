@@ -8,8 +8,4 @@ router.get("/", ctrlWrapper(getAll));
 
 router.get("/:id", ctrlWrapper(getById));
 
-router.post("/history", ctrlWrapper);
-
-router.delete("/:id", ctrlWrapper);
-
 export default router;

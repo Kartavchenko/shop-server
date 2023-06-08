@@ -9,6 +9,4 @@ const products_1 = require("../../controllers/products");
 const router = express_1.default.Router();
 router.get("/", (0, helpers_1.ctrlWrapper)(products_1.getAll));
 router.get("/:id", (0, helpers_1.ctrlWrapper)(products_1.getById));
-router.post("/history", helpers_1.ctrlWrapper);
-router.delete("/:id", helpers_1.ctrlWrapper);
 exports.default = router;

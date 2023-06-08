@@ -2,14 +2,13 @@
   "name": "shop-server",
   "version": "1.0.0",
   "engines": {
-    "node": "18.x",
-    "npm": "9.x"
+    "node": ">=18"
   },
   "description": "api/v1",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node dist/index.js",
     "build": "tsc",
+    "start": "node dist/index.js",
     "serve": "npx tsc & nodemon src/index.ts --exec ts-node"
   },
   "author": "kartavchenko",
