@@ -1,3 +1,3 @@
-export * from './getWishlist';
-export * from './addToWishlist';
-export * from './deleteFromWishlist';
+export { getWishlist } from "./getWishlist";
+export { addToWishlist } from "./addToWishlist";
+export { deleteFromWishlist } from "./deleteFromWishlist";

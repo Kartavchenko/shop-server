@@ -1,19 +1,9 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./getWishlist"), exports);
-__exportStar(require("./addToWishlist"), exports);
-__exportStar(require("./deleteFromWishlist"), exports);
+exports.deleteFromWishlist = exports.addToWishlist = exports.getWishlist = void 0;
+var getWishlist_1 = require("./getWishlist");
+Object.defineProperty(exports, "getWishlist", { enumerable: true, get: function () { return getWishlist_1.getWishlist; } });
+var addToWishlist_1 = require("./addToWishlist");
+Object.defineProperty(exports, "addToWishlist", { enumerable: true, get: function () { return addToWishlist_1.addToWishlist; } });
+var deleteFromWishlist_1 = require("./deleteFromWishlist");
+Object.defineProperty(exports, "deleteFromWishlist", { enumerable: true, get: function () { return deleteFromWishlist_1.deleteFromWishlist; } });
