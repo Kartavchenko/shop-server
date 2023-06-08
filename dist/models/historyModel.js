@@ -36,7 +36,7 @@ const historySchema = new mongoose_1.Schema({
             },
             totalPrice: {
                 type: Number,
-                default: 0,
+                required: [true, "Total price is required"],
             },
         }],
 }, { versionKey: false });

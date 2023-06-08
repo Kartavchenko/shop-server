@@ -17,10 +17,6 @@ const historyModel_1 = __importDefault(require("../../models/historyModel"));
 const addToHistoryOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId, orders } = req.body;
     const history = yield historyModel_1.default.findOne({ userId });
-    const getSumOfOrder = orders
-        .map((order) => order
-        .items.map((item) => item.price)
-        .reduce((a, b) => a + b, 0));
     // Create a new history order if the user doesn't have one
     if (!history) {
         const createHistory = yield historyModel_1.default.create(req.body);

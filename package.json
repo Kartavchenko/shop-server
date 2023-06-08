@@ -8,7 +8,8 @@
   "description": "api/v1",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "npm run build && node dist/index.js",
+    "build": "npx tsc",
     "serve": "npx tsc & nodemon src/index.ts --exec ts-node"
   },
   "author": "kartavchenko",
