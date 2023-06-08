@@ -6,7 +6,6 @@ interface UserWishlist {
 }
 
 interface Product {
-    _id: string;
     name: string;
     price: string;
     description: string;
@@ -20,13 +19,7 @@ const wishlistSchema = new Schema<UserWishlist>({
         unique: true,
         required: [true, "User ID is required"],
     },
-    items: [
-        {
-        _id: {
-            type: String,
-            unique: true,
-            required: [true, "ID is required"],
-        },
+    items: [{
         name: {
             type: String,
             required: [true, "Name is required"],
@@ -46,7 +39,7 @@ const wishlistSchema = new Schema<UserWishlist>({
         image_url: {
             type: String,
         },
-        }
+    }
     ],
 }, { versionKey: false });
 

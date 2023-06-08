@@ -14,10 +14,11 @@ export const addToWishlist = async (req: Request, res: Response) => {
     }
 
     // Looping through the items array and get the _id of each item
-    const listItems = list.items.map((item) => item._id);
+    const listItems = list.items.map((item) => item.name);
 
     // Check if the item already exists in the wishlist
-    const existItem = items.find((item: any) => listItems.includes(item._id));
+    const existItem = items.find((item: any) => listItems.includes(item.name));
+    console.log(existItem)
 
     if (existItem) {
         return res.status(400).json({ message: "Item already in wishlist" });
