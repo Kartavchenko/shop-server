@@ -8,7 +8,7 @@ export const getHistoryOrder = async (req: Request, res: Response) => {
     const result = await HistoryOrders.findOne({ userId });
 
     // Throw an error if the history doesn't exist
-    if (!result) throw httpError(404, "History with this user not found");
+    if (!result) throw httpError(404, "History this user not found");
 
     res.json(result);
 }

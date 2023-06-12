@@ -20,7 +20,7 @@ const getHistoryOrder = (req, res) => __awaiter(void 0, void 0, void 0, function
     const result = yield historyModel_1.default.findOne({ userId });
     // Throw an error if the history doesn't exist
     if (!result)
-        throw (0, helpers_1.httpError)(404, "History with this user not found");
+        throw (0, helpers_1.httpError)(404, "History this user not found");
     res.json(result);
 });
 exports.getHistoryOrder = getHistoryOrder;

@@ -20,7 +20,7 @@ const getWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     const result = yield wishlistModel_1.default.findOne({ userId });
     // Throw an error if the wishlist doesn't exist
     if (!result)
-        throw (0, helpers_1.httpError)(404, "Wishlist with this user not found");
+        throw (0, helpers_1.httpError)(404, "Wishlist this user not found");
     res.json(result);
 });
 exports.getWishlist = getWishlist;
