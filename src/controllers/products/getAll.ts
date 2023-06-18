@@ -12,7 +12,8 @@ export const getAll = async (req: Request, res: Response) => {
     const getProducts = await Product.find({
         $or: [
             { name: { $regex: String(query), $options: "i" } },
-            { description: { $regex: String(query), $options: "i" } },
+            { category: { $regex: String(query), $options: "i" } },
+            { description: { $regex: String(query), $options: "i" } }
         ],
     })
         .limit(Number(pageLimit))

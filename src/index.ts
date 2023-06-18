@@ -30,7 +30,7 @@ declare global {
   try {
     await mongoose.connect(DATABASE_URL);
 
-    await app.listen(PORT || 3000);
+    await app.listen(PORT || 3001);
 
   } catch (error: any) {
     console.error(error.message);

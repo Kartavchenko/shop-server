@@ -17,6 +17,7 @@ interface Product {
     description: string;
     category: string;
     image_url?: string;
+    amount: number;
 }
 
 const historySchema = new Schema<UserHistory>({
@@ -47,6 +48,10 @@ const historySchema = new Schema<UserHistory>({
                 type: String,
                 default: "https://t3.ftcdn.net/jpg/02/38/70/20/360_F_238702055_2MO2vhrRRLOvHMt9KRHMPmNgYfcGZrKS.jpg"
             },
+            amount: {
+                type: Number,
+                required: [true, "Amount is required"],
+            }
         }],
         orderDate: {
             type: Date,
