@@ -11,6 +11,7 @@ export const addToHistoryOrderSchema = Joi.object({
             description: Joi.string().required(),
             category: Joi.string().required(),
             image_url: Joi.string().optional(),
+            quantity: Joi.number().required(),
         }).required(),
     })
 });
