@@ -17,7 +17,7 @@ interface Product {
     description: string;
     category: string;
     image_url?: string;
-    amount: number;
+    quantity: number;
 }
 
 const historySchema = new Schema<UserHistory>({
