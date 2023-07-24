@@ -9,7 +9,7 @@ export const getAll = async (req: Request, res: Response) => {
 
     const getAllProducts = await Product.find({});
 
-    // const getByCategory = await Product.find({ category: category });
+    const getByCategory = await Product.find({ category: category });
 
     // Get products with query params
     const getProducts = await Product.find({
@@ -32,7 +32,6 @@ export const getAll = async (req: Request, res: Response) => {
         totalProducts,
         getProducts,
         getAllProducts,
-        // getByCategory,
-        amountPerPage: getProducts.length
+        getByCategory,
     });
 }
