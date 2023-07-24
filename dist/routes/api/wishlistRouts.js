@@ -1,0 +1,12 @@
+"use strict";
+// import express from "express";
+// import validateBody from "../../middlewares/validateBody";
+// import { ctrlWrapper } from "../../helpers";
+// import { addToWishlistSchema } from "../../Schemas";
+// import { addToWishlist, getWishlist, deleteFromWishlist } from "../../controllers/wishList";
+Object.defineProperty(exports, "__esModule", { value: true });
+// const router = express.Router();
+// router.get("/:userId", ctrlWrapper(getWishlist));
+// router.post("/", validateBody(addToWishlistSchema), ctrlWrapper(addToWishlist));
+// router.delete("/:userId/:itemId", ctrlWrapper(deleteFromWishlist));
+// export default router;
