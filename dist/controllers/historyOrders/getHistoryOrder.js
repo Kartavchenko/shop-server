@@ -18,8 +18,10 @@ const helpers_1 = require("../../helpers");
 const getHistoryOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId } = req.params;
     const result = yield historyModel_1.default.findOne({ userId });
-    // Throw an error if the history doesn't exist
     if (!result)
+        return res.status(200).json({ message: 'No data found.' });
+    // Throw an error if the history user doesn't exist
+    if (!userId)
         throw (0, helpers_1.httpError)(404, "History this user not found");
     res.json(result);
 });

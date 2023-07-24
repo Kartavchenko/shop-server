@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.get("/", ctrlWrapper(getAll));
 
+router.get("/:category", ctrlWrapper(getAll));
+
 router.get("/:id", ctrlWrapper(getById));
 
 export default router;
