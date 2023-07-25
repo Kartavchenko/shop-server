@@ -11,6 +11,14 @@ export const getAll = async (req: Request, res: Response) => {
 
     const getByCategory = await Product.find({ category: category });
 
+    const getProductsWithParams = await Product.find({
+        $or: [
+            { category: category },
+            { name: { $regex: String(query), $options: "i" } },
+            { category: { $regex: String(query), $options: "i" } },
+        ],
+    })
+
     // Get products with query params
     const getProducts = await Product.find({
         $or: [
@@ -22,7 +30,7 @@ export const getAll = async (req: Request, res: Response) => {
         .limit(Number(pageLimit))
         .skip((Number(page) - 1) * Number(pageLimit));
 
-    const totalPages = await Math.ceil(totalProducts / Number(pageLimit));
+    const totalPages = await Math.ceil(getProductsWithParams.length / Number(pageLimit));
 
     // Get object with pagination info and products
     res.json({

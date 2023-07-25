@@ -16,7 +16,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const setCookies_1 = __importDefault(require("middlewares/setCookies"));
+const setCookies_1 = __importDefault(require("./middlewares/setCookies"));
 const productsRouts_1 = __importDefault(require("./routes/api/productsRouts"));
 const historiesRouts_1 = __importDefault(require("./routes/api/historiesRouts"));
 // import wishlistRouter from "./routes/api/wishlistRouts";
