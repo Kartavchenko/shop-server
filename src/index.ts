@@ -3,7 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import sameSite from "middlewares/setCookies";
+import sameSite from "./middlewares/setCookies";
 import productsRouter from "./routes/api/productsRouts";
 import historyOrdersRouter from "./routes/api/historiesRouts";
 // import wishlistRouter from "./routes/api/wishlistRouts";

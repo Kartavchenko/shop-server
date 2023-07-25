@@ -16,6 +16,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const setCookies_1 = __importDefault(require("middlewares/setCookies"));
 const productsRouts_1 = __importDefault(require("./routes/api/productsRouts"));
 const historiesRouts_1 = __importDefault(require("./routes/api/historiesRouts"));
 // import wishlistRouter from "./routes/api/wishlistRouts";
@@ -25,13 +26,6 @@ const { DATABASE_URL, PORT } = process.env;
 (() => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(DATABASE_URL);
-        yield app.get("/", (req, res) => {
-            res.cookie('myCookie', 'cookieValue', {
-                sameSite: 'strict',
-                httpOnly: true,
-                secure: true, // Optional: Ensure the cookie is only sent over HTTPS connections
-            });
-        });
         yield app.listen(PORT || 3001);
     }
     catch (error) {
@@ -44,6 +38,7 @@ app.use((0, cors_1.default)({
     methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Headers", "Origin", "X-Requested-With", "Accept"]
 }));
+(0, setCookies_1.default)(app);
 app.use(express_1.default.json());
 app.use(express_1.default.static("public"));
 app.use("/api/products", productsRouts_1.default);
