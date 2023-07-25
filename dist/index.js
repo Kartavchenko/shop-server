@@ -25,6 +25,13 @@ const { DATABASE_URL, PORT } = process.env;
 (() => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(DATABASE_URL);
+        yield app.get("/", (req, res) => {
+            res.cookie('myCookie', 'cookieValue', {
+                sameSite: 'strict',
+                httpOnly: true,
+                secure: true, // Optional: Ensure the cookie is only sent over HTTPS connections
+            });
+        });
         yield app.listen(PORT || 3001);
     }
     catch (error) {

@@ -8,5 +8,6 @@ const helpers_1 = require("../../helpers");
 const products_1 = require("../../controllers/products");
 const router = express_1.default.Router();
 router.get("/", (0, helpers_1.ctrlWrapper)(products_1.getAll));
+router.get("/:category", (0, helpers_1.ctrlWrapper)(products_1.getAll));
 router.get("/:id", (0, helpers_1.ctrlWrapper)(products_1.getById));
 exports.default = router;

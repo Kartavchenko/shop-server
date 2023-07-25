@@ -16,18 +16,21 @@ exports.getAll = void 0;
 const productModel_1 = __importDefault(require("../../models/productModel"));
 const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { page = 1, pageLimit = 10, query = '' } = req.query;
+    const { category } = req.params;
     const totalProducts = yield productModel_1.default.countDocuments();
-    const totalPages = yield Math.ceil(totalProducts / Number(pageLimit));
+    const getAllProducts = yield productModel_1.default.find({});
+    const getByCategory = yield productModel_1.default.find({ category: category });
     // Get products with query params
     const getProducts = yield productModel_1.default.find({
         $or: [
+            { category: category },
             { name: { $regex: String(query), $options: "i" } },
             { category: { $regex: String(query), $options: "i" } },
-            { description: { $regex: String(query), $options: "i" } }
         ],
     })
         .limit(Number(pageLimit))
         .skip((Number(page) - 1) * Number(pageLimit));
+    const totalPages = yield Math.ceil(totalProducts / Number(pageLimit));
     // Get object with pagination info and products
     res.json({
         page: Number(page),
@@ -35,7 +38,8 @@ const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         totalPages,
         totalProducts,
         getProducts,
-        currentAmountProducts: getProducts.length,
+        getAllProducts,
+        getByCategory,
     });
 });
 exports.getAll = getAll;

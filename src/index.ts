@@ -30,6 +30,16 @@ declare global {
   try {
     await mongoose.connect(DATABASE_URL);
 
+    await app.get("/", (req: Request, res: Response) => {
+      res.cookie('myCookie', 'cookieValue', {
+        sameSite: 'strict', // The SameSite attribute to 'strict'
+        httpOnly: true, // The cookie accessible only through HTTP(S) requests
+        secure: true, // The cookie is only sent over HTTPS connections
+      });
+      res.send('Cookie set successfully!');
+    })
+
+
     await app.listen(PORT || 3001);
 
   } catch (error: any) {
