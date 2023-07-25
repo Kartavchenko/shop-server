@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+import sameSite from "middlewares/setCookies";
 import productsRouter from "./routes/api/productsRouts";
 import historyOrdersRouter from "./routes/api/historiesRouts";
 // import wishlistRouter from "./routes/api/wishlistRouts";
@@ -30,16 +31,6 @@ declare global {
   try {
     await mongoose.connect(DATABASE_URL);
 
-    await app.get("/", (req: Request, res: Response) => {
-      res.cookie('myCookie', 'cookieValue', {
-        sameSite: 'strict', // The SameSite attribute to 'strict'
-        httpOnly: true, // The cookie accessible only through HTTP(S) requests
-        secure: true, // The cookie is only sent over HTTPS connections
-      });
-      res.send('Cookie set successfully!');
-    })
-
-
     await app.listen(PORT || 3001);
 
   } catch (error: any) {
@@ -49,11 +40,14 @@ declare global {
 }
 )();
 
+
 app.use(cors({
   origin: ["http://localhost:3000", "https://thriving-crostata-ea6435.netlify.app/"],
   methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Headers", "Origin", "X-Requested-With", "Accept"]
 }));
+
+sameSite(app);
 
 app.use(express.json());
 app.use(express.static("public"));
