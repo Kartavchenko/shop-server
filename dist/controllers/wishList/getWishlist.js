@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { httpError } from "../../helpers";
 import WishlistModel from "../../models/wishlistModel";
-const getWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+export const getWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId } = req.params;
     const result = yield WishlistModel.findOne({ userId });
     if (!result)
@@ -19,4 +19,3 @@ const getWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         throw httpError(404, "Wishlist this user not found");
     res.json(result);
 });
-export default getWishlist;

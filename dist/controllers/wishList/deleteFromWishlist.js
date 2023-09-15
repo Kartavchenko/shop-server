@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { httpError } from "../../helpers";
 import WishlistModel from "../../models/wishlistModel";
-const deleteFromWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+export const deleteFromWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId, itemId } = req.params;
     const user = yield WishlistModel.findOne({ userId });
     // Throw an error if the user doesn't exist
@@ -23,4 +23,3 @@ const deleteFromWishlist = (req, res) => __awaiter(void 0, void 0, void 0, funct
         res.json({ message: "Item deleted" });
     }
 });
-export default deleteFromWishlist;

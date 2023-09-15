@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import WishlistModel from "../../models/wishlistModel";
 
-const addToWishlist = async (req: Request, res: Response) => {
+export const addToWishlist = async (req: Request, res: Response) => {
     const { userId, items } = req.body;
 
     const list = await WishlistModel.findOne({ userId });
@@ -32,5 +32,3 @@ const addToWishlist = async (req: Request, res: Response) => {
 
     res.status(201).json(updateWishlist);
 };
-
-export default addToWishlist;

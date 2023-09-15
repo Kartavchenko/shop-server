@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { httpError } from "../../helpers";
 import WishlistModel from "../../models/wishlistModel";
 
-const deleteFromWishlist = async (req: Request, res: Response) => {
+export const deleteFromWishlist = async (req: Request, res: Response) => {
     const { userId, itemId } = req.params;
 
     const user = await WishlistModel.findOne({ userId });
@@ -23,5 +23,3 @@ const deleteFromWishlist = async (req: Request, res: Response) => {
         res.json({ message: "Item deleted" });
     }
 };
-
-export default deleteFromWishlist;
