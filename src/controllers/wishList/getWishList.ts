@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { httpError } from "../../helpers";
 import WishlistModel from "../../models/wishlistModel";
 
-export const getWishlist = async (req: Request, res: Response) => {
+const getWishlist = async (req: Request, res: Response) => {
     const { userId } = req.params;
 
     const result = await WishlistModel.findOne({ userId });
@@ -14,3 +14,5 @@ export const getWishlist = async (req: Request, res: Response) => {
 
     res.json(result);
 };
+
+export default getWishlist;

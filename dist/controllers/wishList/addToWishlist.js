@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import WishlistModel from "../../models/wishlistModel";
-export const addToWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const addToWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId, items } = req.body;
     const list = yield WishlistModel.findOne({ userId });
     // Create a new wishlist if the user doesn't have one
@@ -27,3 +27,4 @@ export const addToWishlist = (req, res) => __awaiter(void 0, void 0, void 0, fun
     const updateWishlist = yield WishlistModel.findOneAndUpdate({ userId }, { $push: { items: items } }, { new: true });
     res.status(201).json(updateWishlist);
 });
+export default addToWishlist;

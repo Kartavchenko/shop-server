@@ -7,9 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import WishlistModel from "../../models/wishlistModel";
 import { httpError } from "../../helpers";
-export const getWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+import WishlistModel from "../../models/wishlistModel";
+const getWishlist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId } = req.params;
     const result = yield WishlistModel.findOne({ userId });
     if (!result)
@@ -19,3 +19,4 @@ export const getWishlist = (req, res) => __awaiter(void 0, void 0, void 0, funct
         throw httpError(404, "Wishlist this user not found");
     res.json(result);
 });
+export default getWishlist;
