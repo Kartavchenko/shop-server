@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,16 +8,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import HistoryModel from "../../models/historyModel";
-export const addToHistoryOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.addToHistoryOrder = void 0;
+const historyModel_1 = __importDefault(require("../../models/historyModel"));
+const addToHistoryOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId, orders } = req.body;
-    const history = yield HistoryModel.findOne({ userId });
+    const history = yield historyModel_1.default.findOne({ userId });
     // Create a new history order if the user doesn't have one
     if (!history) {
-        const createHistory = yield HistoryModel.create(req.body);
+        const createHistory = yield historyModel_1.default.create(req.body);
         return res.status(201).json(createHistory);
     }
     // Looping through the orders array and get the _id of each order
-    const updateHistory = yield HistoryModel.findOneAndUpdate({ userId }, { $push: { orders: orders } }, { new: true });
+    const updateHistory = yield historyModel_1.default.findOneAndUpdate({ userId }, { $push: { orders: orders } }, { new: true });
     res.status(201).json(updateHistory);
 });
+exports.addToHistoryOrder = addToHistoryOrder;

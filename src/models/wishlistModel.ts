@@ -1,4 +1,4 @@
-import { Schema, Types, model } from "mongoose";
+import { ObjectId, Schema, Types, model } from "mongoose";
 
 interface UserWishlist {
     userId: string;
@@ -11,6 +11,7 @@ interface Product {
     description: string;
     category: string;
     image_url?: string;
+    _id: ObjectId;
 }
 
 const wishlistSchema = new Schema<UserWishlist>({
@@ -39,6 +40,10 @@ const wishlistSchema = new Schema<UserWishlist>({
         image_url: {
             type: String,
         },
+        _id: {
+            type: String,
+            required: [true, "Passing _id is required"],
+        }
     }
     ],
 }, { versionKey: false });

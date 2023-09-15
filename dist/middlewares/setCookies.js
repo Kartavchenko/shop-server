@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const sameSite = (app) => app.use((req, res, next) => {
     res.cookie('myCommonCookie', 'commonValue', {
         sameSite: 'strict',
@@ -6,4 +8,4 @@ const sameSite = (app) => app.use((req, res, next) => {
     });
     next();
 });
-export default sameSite;
+exports.default = sameSite;

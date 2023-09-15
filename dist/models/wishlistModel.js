@@ -1,5 +1,7 @@
-import { Schema, model } from "mongoose";
-const wishlistSchema = new Schema({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = require("mongoose");
+const wishlistSchema = new mongoose_1.Schema({
     userId: {
         type: String,
         unique: true,
@@ -25,8 +27,12 @@ const wishlistSchema = new Schema({
             image_url: {
                 type: String,
             },
+            _id: {
+                type: String,
+                required: [true, "Pass _id is required"],
+            }
         }
     ],
 }, { versionKey: false });
-const WishlistModel = model("Wishlist", wishlistSchema, "wishlist");
-export default WishlistModel;
+const WishlistModel = (0, mongoose_1.model)("Wishlist", wishlistSchema, "wishlist");
+exports.default = WishlistModel;
