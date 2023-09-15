@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import WishlistModel from "../../models/wishlistModel";
 import { httpError } from "../../helpers";
+import WishlistModel from "../../models/wishlistModel";
 
 export const getWishlist = async (req: Request, res: Response) => {
     const { userId } = req.params;

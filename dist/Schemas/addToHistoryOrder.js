@@ -1,22 +1,16 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.addToHistoryOrderSchema = void 0;
-const joi_1 = __importDefault(require("joi"));
-exports.addToHistoryOrderSchema = joi_1.default.object({
-    userId: joi_1.default.string().required(),
-    orders: joi_1.default.array().items({
-        orderDate: joi_1.default.date().default(Date.now),
-        totalPrice: joi_1.default.number().required(),
-        items: joi_1.default.array().items({
-            name: joi_1.default.string().required(),
-            price: joi_1.default.number().required(),
-            description: joi_1.default.string().required(),
-            category: joi_1.default.string().required(),
-            image_url: joi_1.default.string().optional(),
-            quantity: joi_1.default.number().required(),
+import Joi from 'joi';
+export const addToHistoryOrderSchema = Joi.object({
+    userId: Joi.string().required(),
+    orders: Joi.array().items({
+        orderDate: Joi.date().default(Date.now),
+        totalPrice: Joi.number().required(),
+        items: Joi.array().items({
+            name: Joi.string().required(),
+            price: Joi.number().required(),
+            description: Joi.string().required(),
+            category: Joi.string().required(),
+            image_url: Joi.string().optional(),
+            quantity: Joi.number().required(),
         }).required(),
     })
 });

@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,19 +7,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAll = void 0;
-const productModel_1 = __importDefault(require("../../models/productModel"));
-const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+import Product from "../../models/productModel";
+export const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { page = 1, pageLimit = 10, query = '' } = req.query;
     const { category } = req.params;
-    const totalProducts = yield productModel_1.default.countDocuments();
-    const getAllProducts = yield productModel_1.default.find({});
-    const getByCategory = yield productModel_1.default.find({ category: category });
-    const getProductsWithParams = yield productModel_1.default.find({
+    const totalProducts = yield Product.countDocuments();
+    const getAllProducts = yield Product.find({});
+    const getByCategory = yield Product.find({ category: category });
+    const getProductsWithParams = yield Product.find({
         $or: [
             { category: category },
             { name: { $regex: String(query), $options: "i" } },
@@ -28,7 +22,7 @@ const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         ],
     });
     // Get products with query params
-    const getProducts = yield productModel_1.default.find({
+    const getProducts = yield Product.find({
         $or: [
             { category: category },
             { name: { $regex: String(query), $options: "i" } },
@@ -49,4 +43,3 @@ const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         getByCategory,
     });
 });
-exports.getAll = getAll;

@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-const historySchema = new mongoose_1.Schema({
+import { Schema, model } from "mongoose";
+const historySchema = new Schema({
     userId: {
         type: String,
         unique: true,
@@ -44,5 +42,5 @@ const historySchema = new mongoose_1.Schema({
             },
         }],
 }, { versionKey: false });
-const HistoryModel = (0, mongoose_1.model)("History", historySchema, "history-orders");
-exports.default = HistoryModel;
+const HistoryModel = model("History", historySchema, "history-orders");
+export default HistoryModel;
