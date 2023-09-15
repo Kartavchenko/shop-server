@@ -42,9 +42,9 @@ declare global {
 
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://thriving-crostata-ea6435.netlify.app/"],
+  origin: ["http://localhost:3000", "https://thriving-crostata-ea6435.netlify.app"],
   methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
-  allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Headers", "Origin", "X-Requested-With", "Accept"]
+  allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Headers", "Access-Control-Allow-Origin", "Origin", "X-Requested-With", "Accept"]
 }));
 
 sameSite(app);
