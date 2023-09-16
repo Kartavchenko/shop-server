@@ -8,6 +8,7 @@ export const addToWishlistSchema = Joi.object({
         description: Joi.string().required(),
         category: Joi.string().required(),
         image_url: Joi.string().optional(),
+        favorite: Joi.boolean(),
         _id: Joi.string().required(),
     }).required(),
 })

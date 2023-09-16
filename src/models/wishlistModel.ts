@@ -11,6 +11,7 @@ interface Product {
     description: string;
     category: string;
     image_url?: string;
+    favorite: boolean;
     _id: ObjectId;
 }
 
@@ -39,6 +40,10 @@ const wishlistSchema = new Schema<UserWishlist>({
         },
         image_url: {
             type: String,
+        },
+        favorite: {
+            type: Boolean,
+            default: false,
         },
         _id: {
             type: String,
